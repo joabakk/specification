@@ -1,0 +1,36 @@
+{	"polar": {
+		"type": "object",
+		"description": "An object describing the polar diagram of a sailboat.",
+		"title": "polar",
+		"properties": {
+			"id": {
+				"type": "string",
+				"description": "An unique identifier by which the polar diagram can be recognized",
+				"example": "Maxi_Fenix_fullMain_fullGenoa"
+			},
+			"seastate": {
+				"type": "string",
+				"enum": [
+					"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "all"
+				],
+				"description": "The Beaufort sea state, see https://en.wikipedia.org/wiki/Beaufort_scale",
+				"example": "all"
+			},
+			"WindSpeedTrue": {
+				"description": "Wind speed over water (as calculated from speedApparent and vessel's speed through water)",
+				"$ref": "../definitions.json#/definitions/numberValue",
+				"units": "m/s"
+			},
+			"angleTrueWater": {
+				"description": "True wind angle based on speed through water, negative to port",
+				"$ref": "../definitions.json#/definitions/numberValue",
+				"units": "rad"
+			},
+      "polarSpeed": {
+      "description": "The current polar speed based on current polar diagram, WindSpeedTrue and angleTrueWater.",
+      "$ref": "../definitions.json#/definitions/numberValue",
+      "units": "m/s"
+    },
+		}
+	}
+}
